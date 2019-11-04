@@ -38,8 +38,8 @@ pub trait FromDbc {
 /// A library used to translate CAN signals into desired values.
 #[derive(Debug, PartialEq, Clone)]
 pub struct PgnLibrary {
-    last_id: u32,
-    pgns: HashMap<u32, PgnDefinition>,
+    pub last_id: u32,
+    pub pgns: HashMap<u32, PgnDefinition>,
 }
 
 impl PgnLibrary {
@@ -217,12 +217,12 @@ impl Default for PgnLibrary {
 /// Parameter Group Number definition
 #[derive(Debug, PartialEq, Clone)]
 pub struct PgnDefinition {
-    pgn: u32,
-    pgn_long: u32,
-    name_abbrev: String,
-    description: String,
-    length: u32,
-    spns: HashMap<String, SpnDefinition>,
+    pub pgn: u32,
+    pub pgn_long: u32,
+    pub name_abbrev: String,
+    pub description: String,
+    pub length: u32,
+    pub spns: HashMap<String, SpnDefinition>,
 }
 
 impl PgnDefinition {
@@ -482,19 +482,19 @@ impl FromDbc for PgnDefinition {
 /// Suspect Parameter Number definition
 #[derive(Debug, PartialEq, Clone)]
 pub struct SpnDefinition {
-    name: String,
+    pub name: String,
     pub number: usize,
-    id: u32,
-    description: String,
-    start_bit: usize,
-    bit_len: usize,
-    little_endian: bool,
-    signed: bool,
-    scale: f32,
-    offset: f32,
-    min_value: f32,
-    max_value: f32,
-    units: String,
+    pub id: u32,
+    pub description: String,
+    pub start_bit: usize,
+    pub bit_len: usize,
+    pub little_endian: bool,
+    pub signed: bool,
+    pub scale: f32,
+    pub offset: f32,
+    pub min_value: f32,
+    pub max_value: f32,
+    pub units: String,
 }
 
 /// Internal function for parsing CAN message arrays given the definition parameters.  This is where
